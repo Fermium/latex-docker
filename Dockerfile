@@ -1,10 +1,10 @@
-FROM ubuntu:xenial
+FROM ubuntu:18.04
 
 MAINTAINER Fermium LABS srl <info@fermiumlabs.com>
 
 ######################################### CONFIG
-ARG node_ver=6
-ARG pandoc_ver=2.1.3
+ARG node_ver=10
+ARG pandoc_ver=2.7.2
 
 #########################################
 ENV HOME /root
@@ -29,14 +29,14 @@ RUN apt-get install -yqq yarn
 
 # Install R
 RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E298A3A825C0D65DFD57CBB651716619E084DAB9
-RUN add-apt-repository 'deb [arch=amd64,i386] https://cran.rstudio.com/bin/linux/ubuntu xenial/'
+RUN add-apt-repository 'deb https://cloud.r-project.org/bin/linux/ubuntu bionic-cran35/'
 RUN apt-get -yqq update
 RUN apt-get install -yqq r-base
 # Install popular package bookdown and rmarkdown for document authoring
 RUN Rscript -e "install.packages('rmarkdown',repos='https://cran.rstudio.com');install.packages('bookdown',repos='https://cran.rstudio.com')"
 
-# Install Roboto font, ghostscript, pandoc extensions
-RUN apt-get -qq -y install  ghostscript
+# Install ghostscript, pandoc extensions
+RUN apt-get -qq -y install ghostscript
 RUN pip install --upgrade pip
 RUN pip install pandoc-fignos pandoc-eqnos pandoc-tablenos
 
