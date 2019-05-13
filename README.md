@@ -13,11 +13,11 @@ This container is intended to be used as a base image in CI builds for document 
 
 Includes the following packages and utilities:
 
-* [Node.js](https://nodejs.org/it/) (defaults to 6)
+* [Node.js](https://nodejs.org/it/) (defaults to 10)
   - [Yarn](https://yarnpkg.com/en/)
-* TexLive 2017 full automatically installed from the TexLive repository
+* TexLive 2019 full automatically installed from the TexLive repository
 * Zip, wget and similar unix tools
-* Pandoc (defaults to 2.1.3)
+* Pandoc (defaults to 2.7.2)
   * [pandoc-fignos](https://github.com/tomduck/pandoc-fignos)
   * [pandoc-eqnos](https://github.com/tomduck/pandoc-eqnos)
   * [pandoc-tablenos](https://github.com/tomduck/pandoc-tablenos)
