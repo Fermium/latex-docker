@@ -63,11 +63,12 @@ RUN rm -rf install-tl*
 
 #Export useful texlive paths
 ENV PATH /opt/texbin:$PATH
-ENV PATH /usr/local/texlive/2017/bin/x86_64-linux:$PATH
+ENV PATH /usr/local/texlive/2019/bin/x86_64-linux:$PATH
 
 # Test Latex
 RUN wget ftp://www.ctan.org/tex-archive/macros/latex/base/small2e.tex 
 RUN latex  small2e.tex
+RUN pdflatex  small2e.tex
 RUN xelatex small2e.tex
 
 RUN  rm -rf /var/lib/apt/lists/*
