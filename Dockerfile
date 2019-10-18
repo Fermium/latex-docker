@@ -4,7 +4,7 @@ MAINTAINER Fermium LABS srl <info@fermiumlabs.com>
 
 ######################################### CONFIG
 ARG node_ver=10
-ARG pandoc_ver=2.7.2
+ARG pandoc_ver=2.7.3
 
 #########################################
 ENV HOME /root
@@ -14,7 +14,7 @@ ENV DEBIAN_FRONTEND noninteractive
 
 # Install general dependencies
 RUN apt-get -qq -y update 
-RUN apt-get -qq -y install curl wget build-essential zip python-pip jq git libfontconfig locales software-properties-common
+RUN apt-get -qq -y install curl wget build-essential zip python-pip jq git libfontconfig locales software-properties-common imagemagick
 
 # Install nodejs
 RUN curl -sL https://deb.nodesource.com/setup_$node_ver.x -o nodesource_setup.sh && chmod +x nodesource_setup.sh
