@@ -70,7 +70,7 @@ ENV PATH /usr/local/texlive/2019/bin/x86_64-linux:$PATH
 RUN tlmgr update --self --all
 
 # Test Latex
-RUN wget ftp://www.ctan.org/tex-archive/macros/latex/base/small2e.tex 
+COPY examples/small2e.tex small2e.tex
 RUN latex  small2e.tex
 RUN pdflatex  small2e.tex
 RUN xelatex small2e.tex
