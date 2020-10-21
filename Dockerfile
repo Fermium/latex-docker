@@ -1,10 +1,10 @@
-FROM ubuntu:18.04
+FROM ubuntu:latest
 
-MAINTAINER Fermium LABS srl <info@fermiumlabs.com>
+LABEL maintainer="support@fermium.ltd.uk"
 
 ######################################### CONFIG
-ARG node_ver=10
-ARG pandoc_ver=2.7.3
+ARG node_ver=12
+ARG pandoc_ver=2.11.0.2
 
 #########################################
 ENV HOME /root
@@ -14,7 +14,7 @@ ENV DEBIAN_FRONTEND noninteractive
 
 # Install general dependencies
 RUN apt-get -qq -y update 
-RUN apt-get -qq -y install curl wget build-essential zip python-pip jq git libfontconfig locales software-properties-common imagemagick
+RUN apt-get -qq -y install curl wget build-essential zip python3-pip jq git libfontconfig locales software-properties-common imagemagick
 
 # Install nodejs
 RUN curl -sL https://deb.nodesource.com/setup_$node_ver.x -o nodesource_setup.sh && chmod +x nodesource_setup.sh
@@ -29,7 +29,7 @@ RUN apt-get install -yqq yarn
 
 # Install R
 RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E298A3A825C0D65DFD57CBB651716619E084DAB9
-RUN add-apt-repository 'deb https://cloud.r-project.org/bin/linux/ubuntu bionic-cran35/'
+RUN add-apt-repository 'deb https://cloud.r-project.org/bin/linux/ubuntu focal-cran40/'
 RUN apt-get -yqq update
 RUN apt-get install -yqq r-base
 # Install popular package bookdown and rmarkdown for document authoring
@@ -37,8 +37,8 @@ RUN Rscript -e "install.packages('rmarkdown',repos='https://cran.rstudio.com');i
 
 # Install ghostscript, pandoc extensions
 RUN apt-get -qq -y install ghostscript
-RUN pip install --upgrade pip
-RUN pip install pandoc-fignos pandoc-eqnos pandoc-tablenos
+RUN pip3 install --upgrade pip
+RUN pip3 install pandoc-fignos pandoc-eqnos pandoc-tablenos
 
 # Install a few beautiful fonts
 RUN apt-get -qq -y install fonts-roboto
@@ -64,13 +64,13 @@ RUN rm -rf install-tl*
 
 #Export useful texlive paths
 ENV PATH /opt/texbin:$PATH
-ENV PATH /usr/local/texlive/2019/bin/x86_64-linux:$PATH
+ENV PATH /usr/local/texlive/2020/bin/x86_64-linux:$PATH
 
 #Update texlive and texlive manager to the absolute
 RUN tlmgr update --self --all
 
 #Install pygments for minted
-RUN pip install pygments
+RUN pip3 install pygments
 
 # Test Latex
 COPY examples/small2e.tex small2e.tex

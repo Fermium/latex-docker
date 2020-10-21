@@ -1,24 +1,25 @@
 <a href="https://fermiumlabs.com/">
-    <img src="https://fermiumlabs.com/wp-content/uploads/2019/02/Horizontal-Main_500px.png" alt="Fermium LABS logo" width="200" align="right" />
+    <img src="https://raw.githubusercontent.com/Fermium/presskit/master/Logo/Rasters/250h/Fermium-horizontal.png" alt="Fermium LABS logo" width="200" align="right" />
 </a>
 
 # Latex docker container
 
 [![Docker Pulls](https://img.shields.io/docker/pulls/fermiumlabs/latex-docker.svg?maxAge=2592000)](https://hub.docker.com/r/fermiumlabs/latex-docker/) [![Docker Pulls](https://img.shields.io/docker/automated/fermiumlabs/latex-docker.svg?maxAge=2592000)](https://hub.docker.com/r/fermiumlabs/latex-docker/)  [![Docker Pulls](https://img.shields.io/docker/stars/fermiumlabs/latex-docker.svg?maxAge=2592000)](https://hub.docker.com/r/fermiumlabs/latex-docker/) [![](https://images.microbadger.com/badges/image/fermiumlabs/latex-docker.svg)](https://microbadger.com/images/fermiumlabs/latex-docker "Get your own image badge on microbadger.com")
 
+This container is intended to be used as a base image in CI builds for document authoring systems. 
 
-This container is intended to be used as a base image in CI builds for document authoring systems. The image is **rebuilt every week** automatically with the latest LaTex updates.
+Note: This container was create when out company was called "FermiumLABS" and not "Fermium". As such, it might be migrated in the future to a different container name.
 
 ## Features
 
 Includes the following packages and utilities:
 
-* [Node.js](https://nodejs.org/it/) (defaults to 10)
+* [Node.js](https://nodejs.org/it/) (defaults to 12)
   - [Yarn](https://yarnpkg.com/en/)
-* TexLive 2019 full automatically installed from the TexLive repository
+* TexLive 2020 full automatically installed from the TexLive repository
   - [Pygments](https://pygments.org/) (minted support)
 * Zip, wget and similar unix tools
-* Pandoc (defaults to 2.7.2)
+* Pandoc (defaults to 2.11.0)
   * [pandoc-fignos](https://github.com/tomduck/pandoc-fignos)
   * [pandoc-eqnos](https://github.com/tomduck/pandoc-eqnos)
   * [pandoc-tablenos](https://github.com/tomduck/pandoc-tablenos)
@@ -72,13 +73,6 @@ docker build . -t fermiumlabs/latex-docker:node-7 --build-arg node_ver=7
 docker build . -t fermiumlabs/latex-docker:pandoc-2.1.3 --build-arg pandoc_ver=2.1.3
 ```
 
-## Usage in Wercker CI
-
-Simply add as a first line this statement:
-
-```
-box: fermiumlabs/latex-docker:latest
-```
 ---
 
 <a href="https://twitter.com/intent/user?screen_name=fermiumlabs">
