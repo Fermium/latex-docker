@@ -6,7 +6,7 @@
 
 [![Docker Pulls](https://img.shields.io/docker/pulls/fermiumlabs/latex-docker.svg?maxAge=2592000)](https://hub.docker.com/r/fermiumlabs/latex-docker/) [![Docker Pulls](https://img.shields.io/docker/automated/fermiumlabs/latex-docker.svg?maxAge=2592000)](https://hub.docker.com/r/fermiumlabs/latex-docker/)  [![Docker Pulls](https://img.shields.io/docker/stars/fermiumlabs/latex-docker.svg?maxAge=2592000)](https://hub.docker.com/r/fermiumlabs/latex-docker/) [![](https://images.microbadger.com/badges/image/fermiumlabs/latex-docker.svg)](https://microbadger.com/images/fermiumlabs/latex-docker "Get your own image badge on microbadger.com")
 
-This container is intended to be used as a base image in CI builds for document authoring systems. 
+Latex-docker is a fully-equipped Latex+Pandoc+NodeJS+R docker container to be used in document-authoring systems and automated builds such as CI systems. Installing Latex in a typical virtual machine can require up to one and a half hour, while the Latex distribution shipped with Linux distros is usually obsolete.
 
 Note: This container was create when out company was called "FermiumLABS" and not "Fermium". As such, it might be migrated in the future to a different container name.
 
